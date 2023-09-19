@@ -74,4 +74,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           folder: release
           branch: master
-          target-folder: builds
+          target-folder: releases/webext-${{ env.GIT_DESCRIBE }}
