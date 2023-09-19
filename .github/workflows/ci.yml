@@ -71,6 +71,6 @@ jobs:
           git-config-name: gtskhadadze83
           git-config-email: gtskhadadze83@users.noreply.github.com
           token: ${{ secrets.GITHUB_TOKEN }}
-          folder: release/*
+          folder: release
           branch: master
           target-folder: builds
