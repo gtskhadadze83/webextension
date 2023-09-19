@@ -63,6 +63,7 @@ jobs:
       - name: Deploy 
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          token: ${{ secrets.ACCESS_TOKEN }}
           folder: release/
           branch: master
-          target-folder: builds
+          target-folder: builds/release
