@@ -31,7 +31,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-
+          cache: 'npm'
+          cache-dependency-path: subdir/package-lock.json
+          
+      - run: npm ci
+      - run: npm test
+      
       - name: Build
         env:
           SYNC_DROPBOX_CLIENT_ID: ${{ secrets.SYNC_DROPBOX_CLIENT_ID }}
@@ -59,8 +64,6 @@ jobs:
         with:
            name: 'webext-${{ env.GIT_DESCRIBE }}'
            path: release/
-
-      - run: husky install
         
       - name: Deploy 
         uses: JamesIves/github-pages-deploy-action@v4
