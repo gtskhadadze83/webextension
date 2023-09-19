@@ -63,6 +63,10 @@ jobs:
       - name: Deploy 
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          git-config-name: gtskhadadze83
+          git-config-email: gtskhadadze83@users.noreply.github.com
+          repository-name: gtskhadadze83/webextension
+          token: ${{ secrets.ACCESS_TOKEN }}
           folder: release/
           branch: master
-          target-folder: builds/release
+          target-folder: builds
