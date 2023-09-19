@@ -67,7 +67,7 @@ jobs:
            name: 'webext-${{ env.GIT_DESCRIBE }}'
            path: release/
            
-      - run: yarn add husky -W 
+      - run: yarn add husky -W
        
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
