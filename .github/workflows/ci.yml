@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1 # v1 keeps tags
+        uses: actions/checkout@v3 # v1 keeps tags
         with:
           fetch-depth: 100 # for revision index in version and the `has-changed-path` action
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '20'
 
