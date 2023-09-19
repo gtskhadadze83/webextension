@@ -6,6 +6,7 @@ node_modules/
 /tmp/
 /dist-assets/
 .eslintcache
+.env
 /deploy/
 /chrome/
 /firefox/
