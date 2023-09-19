@@ -32,8 +32,10 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+          check-latest: true
        
-          
+      - run: npm install  
       - run: npm ci
       - run: npm test
       
@@ -64,8 +66,10 @@ jobs:
         with:
            name: 'webext-${{ env.GIT_DESCRIBE }}'
            path: release/
-        
-      - name: Deploy 
+           
+      - run: yarn add husky -W 
+       
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           git-config-name: gtskhadadze83
