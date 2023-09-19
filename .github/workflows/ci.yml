@@ -32,8 +32,9 @@ jobs:
         with:
           node-version: '20'
           check-latest: true
-       
-    
+          
+      - run: node install
+      - run: node ci 
       - run: npm test
       
       - name: Build
