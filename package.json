@@ -3,7 +3,7 @@
   "description": "Ace Script",
   "version": "1.2.1",
   "scripts": {
-    "prepare": "cd .. && husky install webextension/",
+    "prepare": "",
     "dev": "gulp dev",
     "prebuild": "yarn ci",
     "build": "cross-env NODE_ENV=production gulp build",
