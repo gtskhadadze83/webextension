@@ -65,4 +65,4 @@ jobs:
         with:
           folder: release/
           branch: master
-          target-folder: builds/
+          target-folder: builds
