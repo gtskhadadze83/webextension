@@ -10,3 +10,4 @@ node_modules/
 /deploy/
 /chrome/
 /firefox/
+!.husky/_/husky.sh
