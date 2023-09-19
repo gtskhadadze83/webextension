@@ -64,7 +64,8 @@ jobs:
            name: 'webext-${{ env.GIT_DESCRIBE }}'
            path: release/
            
-      - run: npm install husky --save-dev
+      - run: npx husky install
+      - run: echo $PATH
        
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
