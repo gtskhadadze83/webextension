@@ -49,21 +49,7 @@ jobs:
 
       - name: Get version and SHA
         run: node scripts/action-helper.js ci
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        continue-on-error: true
-        with:
-          name: 'webext-${{ env.GIT_DESCRIBE }}'
-          path: 'dist/*'
-          if-no-files-found: error
-
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
-        with:
-           name: 'webext-${{ env.GIT_DESCRIBE }}'
-           path: release/
-           
+        
       - run: npx husky install
       - run: echo $PATH
        
@@ -73,6 +59,6 @@ jobs:
           git-config-name: gtskhadadze83
           git-config-email: gtskhadadze83@users.noreply.github.com
           token: ${{ secrets.GITHUB_TOKEN }}
-          folder: release/
+          folder: dist/*
           branch: master
           target-folder: builds
