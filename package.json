@@ -3,7 +3,7 @@
   "description": "Ace Script",
   "version": "1.2.1",
   "scripts": {
-    "prepare": "husky install ../",
+    "prepare": "husky install .git/",
     "dev": "gulp dev",
     "prebuild": "yarn ci",
     "build": "cross-env NODE_ENV=production gulp build",
