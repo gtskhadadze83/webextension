@@ -1,5 +1,8 @@
 name: CI
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
   push:
@@ -40,22 +43,26 @@ jobs:
 
       - name: Get version and SHA
         run: node scripts/action-helper.js ci
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         continue-on-error: true
         with:
-          name: 'Violentmonkey-test-webext-${{ env.GIT_DESCRIBE }}'
+          name: 'webext-${{ env.GIT_DESCRIBE }}'
           path: 'dist/*'
           if-no-files-found: error
 
-      - name: Upload to Transifex - check src
-        if: github.event_name == 'push' || github.event.pull_request.merged == true
-        uses: marceloprado/has-changed-path@v1
-        id: changed-path-src
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
         with:
-          paths: src
-      - name: Upload to Transifex
-        if: steps.changed-path-src.outputs.changed == 'true'
-        run: node scripts/transifex.mjs update
-        env:
-          TRANSIFEX_TOKEN: ${{ secrets.TRANSIFEX_TOKEN }}
+           name: 'webext-${{ env.GIT_DESCRIBE }}'
+           path: release/
+
+      
+        
+      - name: Deploy 
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: release/
+          branch: master
+          target-folder: builds/
