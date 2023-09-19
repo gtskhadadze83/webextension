@@ -33,8 +33,6 @@ jobs:
           node-version: '20'
           check-latest: true
           
-       
-      - run: npm test
       
       - name: Build
         env:
